@@ -56,9 +56,9 @@ const fetchData = async (): Promise<Company[] | undefined> => {
 		);
 		const result = await response.text();
 		const parseResult = JSON.parse(result);
-		let companies = parseResult.map((company: Company) => {
-			const { getId, getName } = company;
-			return new Company(getId, getName);
+		let companies = parseResult.map((company) => {
+			const { id, name } = company;
+			return new Company(id, name);
 		});
 		companies.push(new Company(22, "Google Sheets"));
 		return companies;
