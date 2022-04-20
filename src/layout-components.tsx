@@ -29,7 +29,7 @@ export const FixedTopBar: React.FunctionComponent<TopBarProps> = (props) => {
 	return (
 		<Box
 			sx={{
-				px: 5,
+				px: 3,
 				top: 0,
 				right: 0,
 				bottom: "auto",
@@ -71,7 +71,7 @@ export const FixedBottomPominentButton: React.FunctionComponent<
 	return (
 		<Box
 			sx={{
-				px: 5,
+				px: 3,
 				pb: 2,
 				height: 50,
 				top: "auto",
@@ -109,6 +109,7 @@ export const FixedMiddleBodyWithVerticalScroll: React.FunctionComponent<
 				pt: 10,
 			}}
 			display="flex"
+			flexWrap="wrap"
 			flexDirection="column"
 		>
 			{props.children}
@@ -142,7 +143,7 @@ export const SearchBarWithHeader: React.FunctionComponent<
 > = (props) => {
 	return (
 		<>
-			<Typography variant="h3" sx={{ px: 5 }}>
+			<Typography variant="h3" sx={{ px: 2.5 }}>
 				{props.headingTitle}
 			</Typography>
 			<Box
