@@ -29,6 +29,11 @@ The main objective of this assignment is to develop a SelectSourcePage as per th
 - [x] 1. Create some sort of a loading UI while waiting for the API to return a response.
 - [x] 2. Develop a search as you go functionality that lets you filter the sources list. For example, if you type "google" in the search box, it should show only google data sources (and not facebook).
 
+## Screenshots
+
+![Desktop Solution](./images/desktop-solution.png) \
+![Mobile Solution](./images/mobile-solution.png)
+
 ## Submission
 
 Once you're done, reach out to your POC at Airboxr with a link to your forked sandbox or repository.
