@@ -1,5 +1,8 @@
 # Airboxr Developer Intern Assignment 1
 
+![TS](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=black&logoWidth=25&style=flat-square)
+![Material Design](https://img.shields.io/badge/-Material_Design-000?logo=materialdesign&logoColor=757575&logoWidth=25)
+
 ## Instructions
 
 This is a sandbox environment created for you to attempt your assignment. Most libraries you'll need are already installed but you're free to install any additional libraries as you see fit. You may also refer to any resource you wish to in your attempt. To get started, simply fork this sandbox and you can start playing around.
@@ -28,4 +31,7 @@ The main objective of this assignment is to develop a SelectSourcePage as per th
 
 ## Submission
 
-Once you're done, reach out to your POC at Airboxr with a link to your forked sandbox.
+Once you're done, reach out to your POC at Airboxr with a link to your forked sandbox or repository.
+
+- Solution URL: [Solution](https://github.com/fidellim/Airboxr-Developer-Assignment)
+- Live Site URL: [Live Site](https://airboxr-intern-assignment-fidellim.netlify.app/)
