@@ -1,0 +1,43 @@
+{
+  "title": "Material demo",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "main": "index.tsx",
+  "devDependencies": {
+    "react-scripts": "latest"
+  },
+  "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/guides/composition/Composition.tsx",
+  "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.2",
+    "@types/lodash": "4.14.149",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "assets": "3.0.1",
+    "lodash": "4.17.15",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest"
+  },
+  "keywords": [],
+  "name": "airboxr-developer-intern-assignment-1-forked",
+  "version": "0.0.0",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
