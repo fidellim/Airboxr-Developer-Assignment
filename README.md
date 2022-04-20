@@ -24,7 +24,7 @@ The main objective of this assignment is to develop a SelectSourcePage as per th
 - [x] The heart icon should let you mark/unmark a source as favourite. Favourite sources should appear before unmarked sources.
 - [x] NOTE: the data source logos are not returned by the API currently. Instead, they're provided within this sandbox under the public folder.
 
-### BONUS
+## BONUS
 
 - [x] 1. Create some sort of a loading UI while waiting for the API to return a response.
 - [x] 2. Develop a search as you go functionality that lets you filter the sources list. For example, if you type "google" in the search box, it should show only google data sources (and not facebook).
@@ -35,3 +35,9 @@ Once you're done, reach out to your POC at Airboxr with a link to your forked sa
 
 - Solution URL: [Solution](https://github.com/fidellim/Airboxr-Developer-Assignment)
 - Live Site URL: [Live Site](https://airboxr-intern-assignment-fidellim.netlify.app/)
+
+## References
+
+- [Postman](https://www.postman.com/) - used for fetching data from APIs.
+- [Material UI](https://mui.com/) - a react component library to build apps faster.
+- [Bearer Token Authentication](https://youtu.be/PPi9teNKRHY) - fetch data with authentication.
