@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import {
 	PageContainer,
@@ -13,23 +12,6 @@ import _ from "lodash";
 import fetchData from "./fetchData";
 import Company from "./company";
 
-let myCompanies: Company[] = [
-	new Company(22, "Google Sheets"),
-	new Company(222, "Google Ads"),
-	new Company(2222, "Facebook Ads"),
-	new Company(21, "Notion"),
-	new Company(20, "Mailchimp"),
-	new Company(23, "Google Analytics"),
-	new Company(19, "Hubspot"),
-	new Company(28, "Hubspot Marketing"),
-];
-
-myCompanies = myCompanies.sort((a, b) => {
-	if (a.getName > b.getName) return 1;
-	else if (a.getName < b.getName) return -1;
-	else return 0;
-});
-
 const SelectSourcePage = () => {
 	const [companies, setCompanies] = useState<Company[]>();
 	const [processing, setProcessing] = useState<boolean>(false);
@@ -38,23 +20,19 @@ const SelectSourcePage = () => {
 	const [searchValue, setSearchValue] = useState<string>("");
 
 	useEffect(() => {
-		setCompanies(myCompanies);
-	}, []);
-
-	useEffect(() => {
-		setQueryData(myCompanies);
-	}, [companies]);
+		setQueryData(companies);
+	}, [isDataLoaded]);
 
 	useEffect(() => {
 		if (searchValue !== "") {
-			const newCompanies = myCompanies.filter((company) => {
+			const newCompanies = companies?.filter((company) => {
 				return company.getName
 					.toLowerCase()
 					.includes(searchValue.toLowerCase());
 			});
 			setQueryData(newCompanies);
 		} else {
-			setQueryData(myCompanies);
+			setQueryData(companies);
 		}
 	}, [searchValue]);
 
@@ -69,8 +47,13 @@ const SelectSourcePage = () => {
 			const fetchedData = await fetchData();
 			setProcessing(false);
 			setIsDataLoaded(true);
-			setCompanies(fetchedData);
-			setQueryData(fetchedData);
+			setCompanies(
+				fetchedData?.sort((a, b) => {
+					if (a.getName > b.getName) return 1;
+					else if (a.getName < b.getName) return -1;
+					else return 0;
+				})
+			);
 		} catch (err) {
 			console.log("error", err);
 		}
@@ -81,7 +64,7 @@ const SelectSourcePage = () => {
 	};
 
 	const handleHeartButton = (id: number) => {
-		let ans: Company[] = myCompanies.map((company) => {
+		let newCompanies: Company[] | undefined = companies?.map((company) => {
 			if (company.getId === id) {
 				company.setIsFavorite = !company.getIsFavorite;
 				return company;
@@ -89,19 +72,23 @@ const SelectSourcePage = () => {
 			return company;
 		});
 
-		myCompanies = ans;
-		console.log(ans?.map((a) => `${a.getIsFavorite}`));
-		// setCompanies(ans);
+		setCompanies(
+			newCompanies?.sort((a, b) => {
+				if (a.getName > b.getName) return 1;
+				else if (a.getName < b.getName) return -1;
+				else return 0;
+			})
+		);
+
 		if (searchValue !== "") {
-			console.log(searchValue);
-			const newCompanies = myCompanies.filter((company) => {
+			const newCompanies = companies?.filter((company) => {
 				return company.getName
 					.toLowerCase()
 					.includes(searchValue.toLowerCase());
 			});
 			setQueryData(newCompanies);
 		} else {
-			setQueryData(myCompanies);
+			setQueryData(companies);
 		}
 	};
 
@@ -110,7 +97,7 @@ const SelectSourcePage = () => {
 			<FixedTopBar title="Select source." leftButton={topbarLeftButton} />
 			<FixedMiddleBodyWithVerticalScroll>
 				{queryData && (
-					<Box display="flex" flexWrap="wrap" flexDirection="column">
+					<>
 						<SearchBarWithHeader
 							headingTitle="Below is a list of the sources you have connected. Please choose
 							the data source you would like to import data from."
@@ -122,16 +109,16 @@ const SelectSourcePage = () => {
 							queryData={queryData}
 							handleHeartButton={handleHeartButton}
 						/>
-					</Box>
+					</>
 				)}
 			</FixedMiddleBodyWithVerticalScroll>
-			{/* {!isDataLoaded && (
+			{!isDataLoaded && (
 				<FixedBottomPominentButton
 					processing={processing}
 					title="Test / Debug"
 					onClick={handleTestDebug}
 				/>
-			)} */}
+			)}
 		</PageContainer>
 	);
 };
